@@ -74,7 +74,35 @@ Your application code is in flutter_app/lib/main.dart.
 
 Chrome で実行
 
-```
+```shell
 $ flutter run
 (Chrome を選ぶ)
 ```
+
+## flutter emulators
+
+色々やっていたので emulators が入っていた
+
+```shell
+$ flutter emulators
+5 available emulators:
+
+apple_ios_simulator • iOS Simulator       • Apple  • ios
+Nexus_5X_API_28_x86 • Nexus 5X API 28 x86 • Google • android
+Pixel_2_API_28      • Pixel 2 API 28      • Google • android
+Pixel_4_API_30      • Pixel 4 API 30      • Google • android
+Pixel_6_API_30      • Pixel 6 API 30      • Google • android
+```
+
+```shell
+flutter emulators --launch Nexus_5X_API_28_x86
+```
+
+エミュレータが起動した
+
+```shell
+flutter run
+```
+
+エミュレータ側で起動した
+(このあたりで、なぜかflutter SDKが壊れていたのでSDKを再インストールした)
