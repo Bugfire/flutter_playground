@@ -1,9 +1,15 @@
-name: Build Android Develop
+name: Test
 
 on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - .github/**
+      - flutter_app/**
   push:
     branches:
       - develop
+      - main
 
 jobs:
   build:
@@ -24,11 +30,4 @@ jobs:
           channel: 'stable'
           cache: true
       - run: flutter pub get
-      - run: flutter build apk
-      - run: flutter build appbundle
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2.2.0
-        with:
-          name: development-apk
-          path: ./flutter_app/build/app/outputs/flutter-apk/app-release.apk
-          retention-days: 3
+      - run: flutter test
