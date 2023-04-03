@@ -2,7 +2,11 @@ name: Build Android Develop
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - develop
+    paths:
+      - .github/**
+      - flutter_app/**
 
 jobs:
   build:
@@ -28,6 +32,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2.2.0
         with:
-          name: app-release
-          path: ./build/app/outputs/flutter-apk/
+          name: development-apk
+          path: ./flutter_app/build/app/outputs/flutter-apk/app-release.apk
           retention-days: 3
