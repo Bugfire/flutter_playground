@@ -1,0 +1,33 @@
+name: Build Android Develop
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: ./flutter_app
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.4'
+          channel: 'stable'
+          cache: true
+      - run: flutter pub get
+      - run: flutter build apk
+      - run: flutter build appbundle
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: app-release
+          path: ./build/app/outputs/flutter-apk/
+          retention-days: 3
