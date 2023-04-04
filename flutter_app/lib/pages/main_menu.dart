@@ -31,7 +31,7 @@ class _MainMenuPage extends State<MainMenuPage> {
               onPressed: () => {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return Page1Page();
+                  return const Page1Page();
                 }))
               },
             ),

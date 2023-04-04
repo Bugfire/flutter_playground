@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'pages/my_home_page.dart';
 import 'pages/main_menu.dart';
 
 class MyApp extends StatelessWidget {
