@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Page1Page extends StatefulWidget {
   const Page1Page({super.key});
@@ -8,7 +9,7 @@ class Page1Page extends StatefulWidget {
   State<Page1Page> createState() => _Page1Page();
 }
 
-class _Page1Page extends State<Page1Page> {
+class _Page1Page extends State<Page1Page> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +20,17 @@ class _Page1Page extends State<Page1Page> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Lottie.asset('assets/lotties/38909-agx-spaces.json',
+                width: 250,
+                height: 250,
+                frameRate: FrameRate(60),
+                repeat: true,
+                animate: true,
+                controller: _animation, onLoaded: (composition) {
+              _animation
+                ..duration = composition.duration
+                ..repeat();
+            }),
             TextButton(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -34,5 +46,19 @@ class _Page1Page extends State<Page1Page> {
       ),
       // const Icon(Icons.add)
     );
+  }
+
+  late AnimationController _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animation = AnimationController(vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _animation.dispose();
+    super.dispose();
   }
 }

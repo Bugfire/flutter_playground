@@ -25,12 +25,10 @@ class _MainMenuPage extends State<MainMenuPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Icon(Icons.light, size: 40.0),
-                  Text("ボタン1", style: TextStyle(fontSize: 40.0)),
+                  Text("Lottie", style: TextStyle(fontSize: 40.0)),
                 ],
               ),
               onPressed: () => {
-                // ignore: avoid_print
-                print("ボタン1"),
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
                   return Page1Page();
