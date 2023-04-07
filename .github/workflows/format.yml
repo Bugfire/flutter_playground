@@ -32,4 +32,4 @@ jobs:
           channel: 'stable'
           cache: true
       - run: flutter pub get
-      - run: flutter format lib --set-exit-if-changed --dry-run
+      - run: dart format --set-exit-if-changed `find lib -name "*.dart" -not -name "*.g.dart"`
