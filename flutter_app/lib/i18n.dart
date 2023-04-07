@@ -19,8 +19,22 @@ void i18nChangeLocale() {
 void _i18nSetLocale() {
   if (kDebugMode) {
     print('i18nChangeLocale');
+    print(LocaleSettings.currentLocale.languageTag);
   }
 
   LocaleSettings.useDeviceLocale();
-  // LocaleSettings.setLocaleRaw();
+  // LocaleSettings.setLocaleRaw(xxx);
+
+  if (kDebugMode) {
+    print('---');
+    print(LocaleSettings.currentLocale.languageTag);
+  }
 }
+
+/*
+  TODO:
+    preference に保存・読み込みロジック
+    デバイスロケールが何に設定されているかの取得
+
+    (デバイスロケール＝ユーザ設定ロケール) の場合はシステムロケールにする
+ */

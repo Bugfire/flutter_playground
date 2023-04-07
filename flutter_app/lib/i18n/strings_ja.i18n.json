@@ -4,6 +4,9 @@
   },
   "dev_menu": {
     "title": "開発メニュー",
-    "read": "読み込み"
+    "read": "読み込み",
+    "nfc_initializing": "NFC初期化中...",
+    "nfc_enabled": "NFC許可",
+    "nfc_disabled": "NFC不許可"
   }
 }

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 6 (3 per locale)
+/// Strings: 12 (6 per locale)
 ///
-/// Built on 2023-04-07 at 15:36 UTC
+/// Built on 2023-04-07 at 15:59 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -22,26 +22,18 @@ const AppLocale _baseLocale = AppLocale.en;
 /// - Locale locale = AppLocale.en.flutterLocale // get flutter locale from enum
 /// - if (LocaleSettings.currentLocale == AppLocale.en) // locale check
 enum AppLocale with BaseAppLocale<AppLocale, _StringsEn> {
-  en(languageCode: 'en', build: _StringsEn.build),
-  ja(languageCode: 'ja', build: _StringsJa.build);
+	en(languageCode: 'en', build: _StringsEn.build),
+	ja(languageCode: 'ja', build: _StringsJa.build);
 
-  const AppLocale(
-      {required this.languageCode,
-      this.scriptCode,
-      this.countryCode,
-      required this.build}); // ignore: unused_element
+	const AppLocale({required this.languageCode, this.scriptCode, this.countryCode, required this.build}); // ignore: unused_element
 
-  @override
-  final String languageCode;
-  @override
-  final String? scriptCode;
-  @override
-  final String? countryCode;
-  @override
-  final TranslationBuilder<AppLocale, _StringsEn> build;
+	@override final String languageCode;
+	@override final String? scriptCode;
+	@override final String? countryCode;
+	@override final TranslationBuilder<AppLocale, _StringsEn> build;
 
-  /// Gets current instance managed by [LocaleSettings].
-  _StringsEn get translations => LocaleSettings.instance.translationMap[this]!;
+	/// Gets current instance managed by [LocaleSettings].
+	_StringsEn get translations => LocaleSettings.instance.translationMap[this]!;
 }
 
 /// Method A: Simple
@@ -71,20 +63,16 @@ _StringsEn get t => LocaleSettings.instance.currentTranslations;
 /// String a = t.someKey.anotherKey; // Use t variable.
 /// String b = t['someKey.anotherKey']; // Only for edge cases!
 class Translations {
-  Translations._(); // no constructor
+	Translations._(); // no constructor
 
-  static _StringsEn of(BuildContext context) =>
-      InheritedLocaleData.of<AppLocale, _StringsEn>(context).translations;
+	static _StringsEn of(BuildContext context) => InheritedLocaleData.of<AppLocale, _StringsEn>(context).translations;
 }
 
 /// The provider for method B
-class TranslationProvider
-    extends BaseTranslationProvider<AppLocale, _StringsEn> {
-  TranslationProvider({required super.child})
-      : super(settings: LocaleSettings.instance);
+class TranslationProvider extends BaseTranslationProvider<AppLocale, _StringsEn> {
+	TranslationProvider({required super.child}) : super(settings: LocaleSettings.instance);
 
-  static InheritedLocaleData<AppLocale, _StringsEn> of(BuildContext context) =>
-      InheritedLocaleData.of<AppLocale, _StringsEn>(context);
+	static InheritedLocaleData<AppLocale, _StringsEn> of(BuildContext context) => InheritedLocaleData.of<AppLocale, _StringsEn>(context);
 }
 
 /// Method B shorthand via [BuildContext] extension method.
@@ -93,213 +81,180 @@ class TranslationProvider
 /// Usage (e.g. in a widget's build method):
 /// context.t.someKey.anotherKey
 extension BuildContextTranslationsExtension on BuildContext {
-  _StringsEn get t => TranslationProvider.of(this).translations;
+	_StringsEn get t => TranslationProvider.of(this).translations;
 }
 
 /// Manages all translation instances and the current locale
 class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, _StringsEn> {
-  LocaleSettings._() : super(utils: AppLocaleUtils.instance);
+	LocaleSettings._() : super(utils: AppLocaleUtils.instance);
 
-  static final instance = LocaleSettings._();
+	static final instance = LocaleSettings._();
 
-  // static aliases (checkout base methods for documentation)
-  static AppLocale get currentLocale => instance.currentLocale;
-  static Stream<AppLocale> getLocaleStream() => instance.getLocaleStream();
-  static AppLocale setLocale(AppLocale locale,
-          {bool? listenToDeviceLocale = false}) =>
-      instance.setLocale(locale, listenToDeviceLocale: listenToDeviceLocale);
-  static AppLocale setLocaleRaw(String rawLocale,
-          {bool? listenToDeviceLocale = false}) =>
-      instance.setLocaleRaw(rawLocale,
-          listenToDeviceLocale: listenToDeviceLocale);
-  static AppLocale useDeviceLocale() => instance.useDeviceLocale();
-  @Deprecated('Use [AppLocaleUtils.supportedLocales]')
-  static List<Locale> get supportedLocales => instance.supportedLocales;
-  @Deprecated('Use [AppLocaleUtils.supportedLocalesRaw]')
-  static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
-  static void setPluralResolver(
-          {String? language,
-          AppLocale? locale,
-          PluralResolver? cardinalResolver,
-          PluralResolver? ordinalResolver}) =>
-      instance.setPluralResolver(
-        language: language,
-        locale: locale,
-        cardinalResolver: cardinalResolver,
-        ordinalResolver: ordinalResolver,
-      );
+	// static aliases (checkout base methods for documentation)
+	static AppLocale get currentLocale => instance.currentLocale;
+	static Stream<AppLocale> getLocaleStream() => instance.getLocaleStream();
+	static AppLocale setLocale(AppLocale locale, {bool? listenToDeviceLocale = false}) => instance.setLocale(locale, listenToDeviceLocale: listenToDeviceLocale);
+	static AppLocale setLocaleRaw(String rawLocale, {bool? listenToDeviceLocale = false}) => instance.setLocaleRaw(rawLocale, listenToDeviceLocale: listenToDeviceLocale);
+	static AppLocale useDeviceLocale() => instance.useDeviceLocale();
+	@Deprecated('Use [AppLocaleUtils.supportedLocales]') static List<Locale> get supportedLocales => instance.supportedLocales;
+	@Deprecated('Use [AppLocaleUtils.supportedLocalesRaw]') static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
+	static void setPluralResolver({String? language, AppLocale? locale, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver}) => instance.setPluralResolver(
+		language: language,
+		locale: locale,
+		cardinalResolver: cardinalResolver,
+		ordinalResolver: ordinalResolver,
+	);
 }
 
 /// Provides utility functions without any side effects.
 class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, _StringsEn> {
-  AppLocaleUtils._()
-      : super(baseLocale: _baseLocale, locales: AppLocale.values);
+	AppLocaleUtils._() : super(baseLocale: _baseLocale, locales: AppLocale.values);
 
-  static final instance = AppLocaleUtils._();
+	static final instance = AppLocaleUtils._();
 
-  // static aliases (checkout base methods for documentation)
-  static AppLocale parse(String rawLocale) => instance.parse(rawLocale);
-  static AppLocale parseLocaleParts(
-          {required String languageCode,
-          String? scriptCode,
-          String? countryCode}) =>
-      instance.parseLocaleParts(
-          languageCode: languageCode,
-          scriptCode: scriptCode,
-          countryCode: countryCode);
-  static AppLocale findDeviceLocale() => instance.findDeviceLocale();
-  static List<Locale> get supportedLocales => instance.supportedLocales;
-  static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
+	// static aliases (checkout base methods for documentation)
+	static AppLocale parse(String rawLocale) => instance.parse(rawLocale);
+	static AppLocale parseLocaleParts({required String languageCode, String? scriptCode, String? countryCode}) => instance.parseLocaleParts(languageCode: languageCode, scriptCode: scriptCode, countryCode: countryCode);
+	static AppLocale findDeviceLocale() => instance.findDeviceLocale();
+	static List<Locale> get supportedLocales => instance.supportedLocales;
+	static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
 }
 
 // translations
 
 // Path: <root>
 class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
-  /// You can call this constructor and build your own translation instance of this locale.
-  /// Constructing via the enum [AppLocale.build] is preferred.
-  _StringsEn.build(
-      {Map<String, Node>? overrides,
-      PluralResolver? cardinalResolver,
-      PluralResolver? ordinalResolver})
-      : assert(overrides == null,
-            'Set "translation_overrides: true" in order to enable this feature.'),
-        $meta = TranslationMetadata(
-          locale: AppLocale.en,
-          overrides: overrides ?? {},
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        ) {
-    $meta.setFlatMapFunction(_flatMapFunction);
-  }
 
-  /// Metadata for the translations of <en>.
-  @override
-  final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsEn.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.en,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
 
-  /// Access flat map
-  dynamic operator [](String key) => $meta.getTranslation(key);
+	/// Metadata for the translations of <en>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
 
-  late final _StringsEn _root = this; // ignore: unused_field
+	/// Access flat map
+	dynamic operator[](String key) => $meta.getTranslation(key);
 
-  // Translations
-  late final _StringsMainMenuEn main_menu = _StringsMainMenuEn._(_root);
-  late final _StringsDevMenuEn dev_menu = _StringsDevMenuEn._(_root);
+	late final _StringsEn _root = this; // ignore: unused_field
+
+	// Translations
+	late final _StringsMainMenuEn main_menu = _StringsMainMenuEn._(_root);
+	late final _StringsDevMenuEn dev_menu = _StringsDevMenuEn._(_root);
 }
 
 // Path: main_menu
 class _StringsMainMenuEn {
-  _StringsMainMenuEn._(this._root);
+	_StringsMainMenuEn._(this._root);
 
-  final _StringsEn _root; // ignore: unused_field
+	final _StringsEn _root; // ignore: unused_field
 
-  // Translations
-  String get title => 'Main Menu';
+	// Translations
+	String get title => 'Main Menu';
 }
 
 // Path: dev_menu
 class _StringsDevMenuEn {
-  _StringsDevMenuEn._(this._root);
+	_StringsDevMenuEn._(this._root);
 
-  final _StringsEn _root; // ignore: unused_field
+	final _StringsEn _root; // ignore: unused_field
 
-  // Translations
-  String get title => 'Development Menu';
-  String get read => 'Read';
+	// Translations
+	String get title => 'Development Menu';
+	String get read => 'Read';
+	String get nfc_initializing => 'Initializing NFC...';
+	String get nfc_enabled => 'NFC Enabled';
+	String get nfc_disabled => 'NFC Disabled';
 }
 
 // Path: <root>
 class _StringsJa implements _StringsEn {
-  /// You can call this constructor and build your own translation instance of this locale.
-  /// Constructing via the enum [AppLocale.build] is preferred.
-  _StringsJa.build(
-      {Map<String, Node>? overrides,
-      PluralResolver? cardinalResolver,
-      PluralResolver? ordinalResolver})
-      : assert(overrides == null,
-            'Set "translation_overrides: true" in order to enable this feature.'),
-        $meta = TranslationMetadata(
-          locale: AppLocale.ja,
-          overrides: overrides ?? {},
-          cardinalResolver: cardinalResolver,
-          ordinalResolver: ordinalResolver,
-        ) {
-    $meta.setFlatMapFunction(_flatMapFunction);
-  }
 
-  /// Metadata for the translations of <ja>.
-  @override
-  final TranslationMetadata<AppLocale, _StringsEn> $meta;
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	_StringsJa.build({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = TranslationMetadata(
+		    locale: AppLocale.ja,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ) {
+		$meta.setFlatMapFunction(_flatMapFunction);
+	}
 
-  /// Access flat map
-  @override
-  dynamic operator [](String key) => $meta.getTranslation(key);
+	/// Metadata for the translations of <ja>.
+	@override final TranslationMetadata<AppLocale, _StringsEn> $meta;
 
-  @override
-  late final _StringsJa _root = this; // ignore: unused_field
+	/// Access flat map
+	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-  // Translations
-  @override
-  late final _StringsMainMenuJa main_menu = _StringsMainMenuJa._(_root);
-  @override
-  late final _StringsDevMenuJa dev_menu = _StringsDevMenuJa._(_root);
+	@override late final _StringsJa _root = this; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsMainMenuJa main_menu = _StringsMainMenuJa._(_root);
+	@override late final _StringsDevMenuJa dev_menu = _StringsDevMenuJa._(_root);
 }
 
 // Path: main_menu
 class _StringsMainMenuJa implements _StringsMainMenuEn {
-  _StringsMainMenuJa._(this._root);
+	_StringsMainMenuJa._(this._root);
 
-  @override
-  final _StringsJa _root; // ignore: unused_field
+	@override final _StringsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => 'メインメニュー';
+	// Translations
+	@override String get title => 'メインメニュー';
 }
 
 // Path: dev_menu
 class _StringsDevMenuJa implements _StringsDevMenuEn {
-  _StringsDevMenuJa._(this._root);
+	_StringsDevMenuJa._(this._root);
 
-  @override
-  final _StringsJa _root; // ignore: unused_field
+	@override final _StringsJa _root; // ignore: unused_field
 
-  // Translations
-  @override
-  String get title => '開発メニュー';
-  @override
-  String get read => '読み込み';
+	// Translations
+	@override String get title => '開発メニュー';
+	@override String get read => '読み込み';
+	@override String get nfc_initializing => 'NFC初期化中...';
+	@override String get nfc_enabled => 'NFC許可';
+	@override String get nfc_disabled => 'NFC不許可';
 }
 
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
 extension on _StringsEn {
-  dynamic _flatMapFunction(String path) {
-    switch (path) {
-      case 'main_menu.title':
-        return 'Main Menu';
-      case 'dev_menu.title':
-        return 'Development Menu';
-      case 'dev_menu.read':
-        return 'Read';
-      default:
-        return null;
-    }
-  }
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'main_menu.title': return 'Main Menu';
+			case 'dev_menu.title': return 'Development Menu';
+			case 'dev_menu.read': return 'Read';
+			case 'dev_menu.nfc_initializing': return 'Initializing NFC...';
+			case 'dev_menu.nfc_enabled': return 'NFC Enabled';
+			case 'dev_menu.nfc_disabled': return 'NFC Disabled';
+			default: return null;
+		}
+	}
 }
 
 extension on _StringsJa {
-  dynamic _flatMapFunction(String path) {
-    switch (path) {
-      case 'main_menu.title':
-        return 'メインメニュー';
-      case 'dev_menu.title':
-        return '開発メニュー';
-      case 'dev_menu.read':
-        return '読み込み';
-      default:
-        return null;
-    }
-  }
+	dynamic _flatMapFunction(String path) {
+		switch (path) {
+			case 'main_menu.title': return 'メインメニュー';
+			case 'dev_menu.title': return '開発メニュー';
+			case 'dev_menu.read': return '読み込み';
+			case 'dev_menu.nfc_initializing': return 'NFC初期化中...';
+			case 'dev_menu.nfc_enabled': return 'NFC許可';
+			case 'dev_menu.nfc_disabled': return 'NFC不許可';
+			default: return null;
+		}
+	}
 }
