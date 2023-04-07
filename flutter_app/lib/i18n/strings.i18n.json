@@ -1,0 +1,9 @@
+{
+  "main_menu": {
+    "title": "Main Menu"
+  },
+  "dev_menu": {
+    "title": "Development Menu",
+    "read": "Read"
+  }
+}
