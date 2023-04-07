@@ -1,0 +1,12 @@
+{
+  "main_menu": {
+    "title": "Main Menu"
+  },
+  "dev_menu": {
+    "title": "Development Menu",
+    "read": "Read",
+    "nfc_initializing": "Initializing NFC...",
+    "nfc_enabled": "NFC Enabled",
+    "nfc_disabled": "NFC Disabled"
+  }
+}

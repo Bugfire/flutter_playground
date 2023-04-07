@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import './page_1.dart';
+import './dev_page.dart';
+import '../i18n/strings.g.dart';
 
 class MainMenuPage extends StatefulWidget {
-  const MainMenuPage({super.key});
-  final String title = 'メインメニュー';
+  MainMenuPage({super.key});
+  final String title = t.main_menu.title;
 
   @override
   State<MainMenuPage> createState() => _MainMenuPage();
@@ -38,13 +40,19 @@ class _MainMenuPage extends State<MainMenuPage> {
             TextButton(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.timelapse, size: 40.0),
-                  Text("ボタン2", style: TextStyle(fontSize: 40.0)),
+                children: [
+                  const Icon(Icons.timelapse, size: 40.0),
+                  Text(t.dev_menu.title,
+                      style: const TextStyle(fontSize: 40.0)),
                 ],
               ),
               // ignore: avoid_print
-              onPressed: () => {print("ボタン2")},
+              onPressed: () => {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return DevPage();
+                }))
+              },
             )
           ],
         ),
