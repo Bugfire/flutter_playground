@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 3
-/// Strings: 24 (8 per locale)
+/// Strings: 27 (9 per locale)
 ///
-/// Built on 2023-04-08 at 11:02 UTC
+/// Built on 2023-04-08 at 12:09 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -173,6 +173,7 @@ class _StringsDevMenuEn {
 	// Translations
 	String get title => 'Development Menu';
 	String get read => 'Read';
+	String get write => 'Write';
 	String get nfc_initializing => 'Initializing NFC...';
 	String get nfc_enabled => 'NFC Enabled';
 	String get nfc_disabled => 'NFC Disabled';
@@ -228,6 +229,7 @@ class _StringsDevMenuJa implements _StringsDevMenuEn {
 	// Translations
 	@override String get title => '開発メニュー';
 	@override String get read => '読み込み';
+	@override String get write => '書き込み';
 	@override String get nfc_initializing => 'NFC初期化中...';
 	@override String get nfc_enabled => 'NFC許可';
 	@override String get nfc_disabled => 'NFC不許可';
@@ -283,6 +285,7 @@ class _StringsDevMenuZhCn implements _StringsDevMenuEn {
 	// Translations
 	@override String get title => '開発メニュー';
 	@override String get read => '読み込み';
+	@override String get write => '書き込み';
 	@override String get nfc_initializing => 'NFC初期化中...';
 	@override String get nfc_enabled => 'NFC許可';
 	@override String get nfc_disabled => 'NFC不許可';
@@ -299,6 +302,7 @@ extension on _StringsEn {
 			case 'main_menu.title': return 'Main Menu';
 			case 'dev_menu.title': return 'Development Menu';
 			case 'dev_menu.read': return 'Read';
+			case 'dev_menu.write': return 'Write';
 			case 'dev_menu.nfc_initializing': return 'Initializing NFC...';
 			case 'dev_menu.nfc_enabled': return 'NFC Enabled';
 			case 'dev_menu.nfc_disabled': return 'NFC Disabled';
@@ -315,6 +319,7 @@ extension on _StringsJa {
 			case 'main_menu.title': return 'メインメニュー';
 			case 'dev_menu.title': return '開発メニュー';
 			case 'dev_menu.read': return '読み込み';
+			case 'dev_menu.write': return '書き込み';
 			case 'dev_menu.nfc_initializing': return 'NFC初期化中...';
 			case 'dev_menu.nfc_enabled': return 'NFC許可';
 			case 'dev_menu.nfc_disabled': return 'NFC不許可';
@@ -331,6 +336,7 @@ extension on _StringsZhCn {
 			case 'main_menu.title': return 'メインメニューCN';
 			case 'dev_menu.title': return '開発メニュー';
 			case 'dev_menu.read': return '読み込み';
+			case 'dev_menu.write': return '書き込み';
 			case 'dev_menu.nfc_initializing': return 'NFC初期化中...';
 			case 'dev_menu.nfc_enabled': return 'NFC許可';
 			case 'dev_menu.nfc_disabled': return 'NFC不許可';

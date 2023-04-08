@@ -11,7 +11,7 @@ emulators: ## Show available emulators
 	flutter emulators
 
 format: ## Format
-	dart format --dry-run `find lib -name "*.dart" -not -name "*.g.dart"`
+	dart format `find lib -name "*.dart" -not -name "*.g.dart"`
 
 lint: ## Lint
 	flutter analyze
