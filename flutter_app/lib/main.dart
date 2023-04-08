@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app.dart';
 import 'i18n.dart';
+import 'i18n/strings.g.dart';
 
 void main() {
   // slang (i18n)
@@ -8,5 +9,5 @@ void main() {
   i18nInit();
 
   // Start
-  runApp(const MyApp());
+  runApp(TranslationProvider(child: const MyApp()));
 }
