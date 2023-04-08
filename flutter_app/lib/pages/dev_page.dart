@@ -31,6 +31,7 @@ String getNfcStateName(NfcState state) {
 class _DevPage extends State<DevPage> {
   NfcState _state = NfcState.initializing;
   String _message = '';
+  bool _sessionRunning = false;
 
   @override
   Widget build(BuildContext context) {
@@ -85,8 +86,18 @@ class _DevPage extends State<DevPage> {
   void readNfc() {
     NfcManager.instance.startSession(onDiscovered: (tag) async {
       setState(() {
+        _sessionRunning = true;
         _message = '${tag.data}';
       });
     });
+  }
+
+  @override
+  void dispose() {
+    if (_sessionRunning) {
+      NfcManager.instance.stopSession();
+      _sessionRunning = false;
+    }
+    super.dispose();
   }
 }

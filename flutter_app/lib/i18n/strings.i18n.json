@@ -1,4 +1,6 @@
 {
+  "name": "Sample",
+  "font_family": "Roboto",
   "main_menu": {
     "title": "Main Menu"
   },
