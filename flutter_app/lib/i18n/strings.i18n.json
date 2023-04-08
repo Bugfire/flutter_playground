@@ -7,6 +7,7 @@
   "dev_menu": {
     "title": "Development Menu",
     "read": "Read",
+    "write": "Write",
     "nfc_initializing": "Initializing NFC...",
     "nfc_enabled": "NFC Enabled",
     "nfc_disabled": "NFC Disabled"

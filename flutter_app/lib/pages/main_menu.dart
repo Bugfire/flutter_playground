@@ -26,26 +26,28 @@ class _MainMenuPage extends State<MainMenuPage> {
               child: SizedBox(
                 width: 300,
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.light, size: 40.0),
-                      Text("Lottie", style: TextStyle(fontSize: 40.0)),
-                    ]),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.light, size: 40.0),
+                    Text("Lottie", style: TextStyle(fontSize: 40.0)),
+                  ],
+                ),
               ),
               onPressed: () => {Navigator.pushNamed(context, '/page1')},
             ),
             const SizedBox(height: 30),
             ElevatedButton(
               child: SizedBox(
-                  width: 300,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.timelapse, size: 40.0),
-                      Text(t.dev_menu.title,
-                          style: const TextStyle(fontSize: 40.0)),
-                    ],
-                  )),
+                width: 300,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.timelapse, size: 40.0),
+                    Text(t.dev_menu.title,
+                        style: const TextStyle(fontSize: 40.0)),
+                  ],
+                ),
+              ),
               onPressed: () => {Navigator.pushNamed(context, '/dev')},
             )
           ],

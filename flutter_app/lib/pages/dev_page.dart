@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import '../i18n/strings.g.dart';
 
@@ -42,24 +45,49 @@ class _DevPage extends State<DevPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Text(getNfcStateName(_state),
                 style: const TextStyle(fontSize: 40.0)),
             Visibility(
               visible: _state == NfcState.enabled,
-              child: TextButton(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.search, size: 40.0),
-                    Text(t.dev_menu.read,
-                        style: const TextStyle(fontSize: 40.0)),
-                  ],
-                ),
-                onPressed: () => {readNfc()},
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    child: SizedBox(
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.search, size: 40.0),
+                          Text(t.dev_menu.read,
+                              style: const TextStyle(fontSize: 40.0)),
+                        ],
+                      ),
+                    ),
+                    onPressed: () => {readNfc()},
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    child: SizedBox(
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.edit, size: 40.0),
+                          Text(t.dev_menu.write,
+                              style: const TextStyle(fontSize: 40.0)),
+                        ],
+                      ),
+                    ),
+                    onPressed: () => {writeNfc()},
+                  ),
+                ],
               ),
             ),
+            const SizedBox(height: 30),
             Text(_message),
+            const SizedBox(height: 30),
+            const Text('作りが適当なのでボタン連続で押さないで'),
           ],
         ),
       ),
@@ -84,20 +112,61 @@ class _DevPage extends State<DevPage> {
   }
 
   void readNfc() {
+    _sessionRunning = true;
     NfcManager.instance.startSession(onDiscovered: (tag) async {
-      setState(() {
-        _sessionRunning = true;
-        _message = '${tag.data}';
-      });
+      final ndef = Ndef.from(tag);
+      if (ndef == null) {
+        setState(() {
+          _message = '${tag.data}';
+        });
+      } else {
+        final data = await ndef.read();
+        setState(() {
+          _message = utf8.decode(data.records.first.payload).substring(3);
+        });
+      }
+      stopNfc();
     });
   }
 
-  @override
-  void dispose() {
+  void writeNfc() {
+    _sessionRunning = true;
+    NfcManager.instance.startSession(onDiscovered: (tag) async {
+      final ndef = Ndef.from(tag);
+      if (ndef == null || !ndef.isWritable) {
+        setState(() {
+          _message = '${tag.data}';
+        });
+      } else {
+        try {
+          final message = NdefMessage([
+            // @see https://pub.dev/packages/nfc_manager/example
+            NdefRecord.createText('Woooow'),
+          ]);
+          await ndef.write(message);
+          setState(() {
+            _message = 'Write success!';
+          });
+        } on PlatformException catch (e) {
+          setState(() {
+            _message = e.message ?? 'Exception';
+          });
+        }
+      }
+      stopNfc();
+    });
+  }
+
+  void stopNfc() {
     if (_sessionRunning) {
       NfcManager.instance.stopSession();
       _sessionRunning = false;
     }
+  }
+
+  @override
+  void dispose() {
+    stopNfc();
     super.dispose();
   }
 }
