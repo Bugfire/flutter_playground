@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 12 (6 per locale)
+/// Strings: 14 (7 per locale)
 ///
-/// Built on 2023-04-07 at 15:59 UTC
+/// Built on 2023-04-08 at 09:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -147,6 +147,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
+	String get name => 'Sample';
 	late final _StringsMainMenuEn main_menu = _StringsMainMenuEn._(_root);
 	late final _StringsDevMenuEn dev_menu = _StringsDevMenuEn._(_root);
 }
@@ -200,6 +201,7 @@ class _StringsJa implements _StringsEn {
 	@override late final _StringsJa _root = this; // ignore: unused_field
 
 	// Translations
+	@override String get name => 'さんぷる';
 	@override late final _StringsMainMenuJa main_menu = _StringsMainMenuJa._(_root);
 	@override late final _StringsDevMenuJa dev_menu = _StringsDevMenuJa._(_root);
 }
@@ -234,6 +236,7 @@ class _StringsDevMenuJa implements _StringsDevMenuEn {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'name': return 'Sample';
 			case 'main_menu.title': return 'Main Menu';
 			case 'dev_menu.title': return 'Development Menu';
 			case 'dev_menu.read': return 'Read';
@@ -248,6 +251,7 @@ extension on _StringsEn {
 extension on _StringsJa {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'name': return 'さんぷる';
 			case 'main_menu.title': return 'メインメニュー';
 			case 'dev_menu.title': return '開発メニュー';
 			case 'dev_menu.read': return '読み込み';

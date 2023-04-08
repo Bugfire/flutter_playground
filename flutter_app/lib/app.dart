@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/main_menu.dart';
+import 'i18n/strings.g.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: t.name,
       theme: ThemeData(
         // This is the theme of your application.
         //
