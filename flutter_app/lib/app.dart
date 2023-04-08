@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/dev_page.dart';
+import 'package:flutter_app/pages/page_1.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'pages/main_menu.dart';
 import 'i18n/strings.g.dart';
@@ -27,7 +29,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: t.font_family,
       ),
-      home: MainMenuPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) {
+          return MainMenuPage();
+        },
+        '/page1': (context) {
+          return const Page1Page();
+        },
+        '/dev': (context) {
+          return DevPage();
+        },
+      },
     );
   }
 }

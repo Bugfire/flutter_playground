@@ -22,42 +22,35 @@ class _MainMenuPage extends State<MainMenuPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextButton(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.light, size: 40.0),
-                  Text("Lottie", style: TextStyle(fontSize: 40.0)),
-                ],
+            ElevatedButton(
+              child: SizedBox(
+                width: 300,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.light, size: 40.0),
+                      Text("Lottie", style: TextStyle(fontSize: 40.0)),
+                    ]),
               ),
-              onPressed: () => {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return const Page1Page();
-                }))
-              },
+              onPressed: () => {Navigator.pushNamed(context, '/page1')},
             ),
-            TextButton(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.timelapse, size: 40.0),
-                  Text(t.dev_menu.title,
-                      style: const TextStyle(fontSize: 40.0)),
-                ],
-              ),
-              // ignore: avoid_print
-              onPressed: () => {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return DevPage();
-                }))
-              },
+            const SizedBox(height: 30),
+            ElevatedButton(
+              child: SizedBox(
+                  width: 300,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.timelapse, size: 40.0),
+                      Text(t.dev_menu.title,
+                          style: const TextStyle(fontSize: 40.0)),
+                    ],
+                  )),
+              onPressed: () => {Navigator.pushNamed(context, '/dev')},
             )
           ],
         ),
       ),
-      // const Icon(Icons.add)
     );
   }
 }
