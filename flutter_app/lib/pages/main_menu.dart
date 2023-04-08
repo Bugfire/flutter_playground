@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import './page_1.dart';
-import './dev_page.dart';
 import '../i18n/strings.g.dart';
 
 class MainMenuPage extends StatefulWidget {
