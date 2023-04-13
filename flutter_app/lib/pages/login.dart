@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import '../i18n/strings.g.dart';
+import '../i18n.dart';
 
-class MainMenuPage extends StatefulWidget {
-  MainMenuPage({super.key});
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
   final String title = t.main_menu.title;
 
   @override
-  State<MainMenuPage> createState() => _MainMenuPage();
+  State<LoginPage> createState() => _LoginPage();
 }
 
-class _MainMenuPage extends State<MainMenuPage> {
+class _LoginPage extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,27 +27,11 @@ class _MainMenuPage extends State<MainMenuPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Icon(Icons.light, size: 40.0),
-                    Text("Lottie", style: TextStyle(fontSize: 40.0)),
+                    Text('System (Test)', style: TextStyle(fontSize: 40.0)),
                   ],
                 ),
               ),
-              onPressed: () => {Navigator.pushNamed(context, '/page1')},
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              child: SizedBox(
-                width: 300,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.timelapse, size: 40.0),
-                    Text(t.dev_menu.title,
-                        style: const TextStyle(fontSize: 40.0)),
-                  ],
-                ),
-              ),
-              onPressed: () => {Navigator.pushNamed(context, '/dev')},
+              onPressed: () => {i18nChangeLocale(Language.system)},
             ),
             const SizedBox(height: 30),
             ElevatedButton(
@@ -55,12 +40,37 @@ class _MainMenuPage extends State<MainMenuPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Icon(Icons.timelapse, size: 40.0),
-                    Text('Login', style: TextStyle(fontSize: 40.0)),
+                    Text('Japanese', style: TextStyle(fontSize: 40.0)),
                   ],
                 ),
               ),
-              onPressed: () => {Navigator.pushNamed(context, '/login')},
+              onPressed: () => {i18nChangeLocale(Language.ja)},
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              child: SizedBox(
+                width: 300,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text('English', style: TextStyle(fontSize: 40.0)),
+                  ],
+                ),
+              ),
+              onPressed: () => {i18nChangeLocale(Language.en)},
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              child: SizedBox(
+                width: 300,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text('Chinese (zh)', style: TextStyle(fontSize: 40.0)),
+                  ],
+                ),
+              ),
+              onPressed: () => {i18nChangeLocale(Language.zhCn)},
             )
           ],
         ),

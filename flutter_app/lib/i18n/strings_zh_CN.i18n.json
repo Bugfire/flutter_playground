@@ -1,6 +1,8 @@
 {
   "name": "さんぷる",
-  "font_family": "Roboto",
+  "theme": {
+    "font_family": "Roboto"
+  },
   "main_menu": {
     "title": "メインメニューCN"
   },

@@ -3,7 +3,7 @@
 /// Locales: 3
 /// Strings: 27 (9 per locale)
 ///
-/// Built on 2023-04-08 at 12:09 UTC
+/// Built on 2023-04-13 at 17:17 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -149,9 +149,19 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 
 	// Translations
 	String get name => 'Sample';
-	String get font_family => 'Roboto';
+	late final _StringsThemeEn theme = _StringsThemeEn._(_root);
 	late final _StringsMainMenuEn main_menu = _StringsMainMenuEn._(_root);
 	late final _StringsDevMenuEn dev_menu = _StringsDevMenuEn._(_root);
+}
+
+// Path: theme
+class _StringsThemeEn {
+	_StringsThemeEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get font_family => 'Roboto';
 }
 
 // Path: main_menu
@@ -205,9 +215,19 @@ class _StringsJa implements _StringsEn {
 
 	// Translations
 	@override String get name => 'さんぷる';
-	@override String get font_family => 'NotoJP';
+	@override late final _StringsThemeJa theme = _StringsThemeJa._(_root);
 	@override late final _StringsMainMenuJa main_menu = _StringsMainMenuJa._(_root);
 	@override late final _StringsDevMenuJa dev_menu = _StringsDevMenuJa._(_root);
+}
+
+// Path: theme
+class _StringsThemeJa implements _StringsThemeEn {
+	_StringsThemeJa._(this._root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get font_family => 'NotoJP';
 }
 
 // Path: main_menu
@@ -261,9 +281,19 @@ class _StringsZhCn implements _StringsEn {
 
 	// Translations
 	@override String get name => 'さんぷる';
-	@override String get font_family => 'Roboto';
+	@override late final _StringsThemeZhCn theme = _StringsThemeZhCn._(_root);
 	@override late final _StringsMainMenuZhCn main_menu = _StringsMainMenuZhCn._(_root);
 	@override late final _StringsDevMenuZhCn dev_menu = _StringsDevMenuZhCn._(_root);
+}
+
+// Path: theme
+class _StringsThemeZhCn implements _StringsThemeEn {
+	_StringsThemeZhCn._(this._root);
+
+	@override final _StringsZhCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get font_family => 'Roboto';
 }
 
 // Path: main_menu
@@ -298,7 +328,7 @@ extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'name': return 'Sample';
-			case 'font_family': return 'Roboto';
+			case 'theme.font_family': return 'Roboto';
 			case 'main_menu.title': return 'Main Menu';
 			case 'dev_menu.title': return 'Development Menu';
 			case 'dev_menu.read': return 'Read';
@@ -315,7 +345,7 @@ extension on _StringsJa {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'name': return 'さんぷる';
-			case 'font_family': return 'NotoJP';
+			case 'theme.font_family': return 'NotoJP';
 			case 'main_menu.title': return 'メインメニュー';
 			case 'dev_menu.title': return '開発メニュー';
 			case 'dev_menu.read': return '読み込み';
@@ -332,7 +362,7 @@ extension on _StringsZhCn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'name': return 'さんぷる';
-			case 'font_family': return 'Roboto';
+			case 'theme.font_family': return 'Roboto';
 			case 'main_menu.title': return 'メインメニューCN';
 			case 'dev_menu.title': return '開発メニュー';
 			case 'dev_menu.read': return '読み込み';
