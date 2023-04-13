@@ -41,6 +41,7 @@ dependencies:
   slang: ^3.15.0
   slang_flutter: ^3.15.0
   nfc_manager: ^3.2.0
+  shared_preferences: ^2.1.0
 
 dev_dependencies:
   flutter_test:

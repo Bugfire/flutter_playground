@@ -1,7 +1,9 @@
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/dev_page.dart';
 import 'package:flutter_app/pages/page_1.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'pages/login.dart';
 import 'pages/main_menu.dart';
 import 'i18n/strings.g.dart';
 
@@ -17,22 +19,30 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        fontFamily: t.font_family,
-      ),
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+          fontFamily: t.theme.font_family,
+          pageTransitionsTheme: const PageTransitionsTheme(
+              // @see https://gaprot.jp/2020/10/05/flutter-transition-animation/
+              builders: <TargetPlatform, PageTransitionsBuilder>{
+                TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+                TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+              })),
       initialRoute: '/',
       routes: {
         '/': (context) {
           return MainMenuPage();
+        },
+        '/login': (context) {
+          return LoginPage();
         },
         '/page1': (context) {
           return const Page1Page();

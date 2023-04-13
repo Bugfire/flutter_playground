@@ -1,6 +1,8 @@
 {
   "name": "さんぷる",
-  "font_family": "NotoJP",
+  "theme": {
+    "font_family": "NotoJP"
+  },
   "main_menu": {
     "title": "メインメニュー"
   },

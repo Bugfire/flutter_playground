@@ -3,10 +3,10 @@ import 'app.dart';
 import 'i18n.dart';
 import 'i18n/strings.g.dart';
 
-void main() {
+void main() async {
   // slang (i18n)
   WidgetsFlutterBinding.ensureInitialized();
-  i18nInit();
+  await i18nInit();
 
   // Start
   runApp(TranslationProvider(child: const MyApp()));
